@@ -1,0 +1,18 @@
+public class Nodo
+{
+    private Nodo siguiente;
+    private Object valor;
+    public Nodo(Object valor){
+        this.valor=valor;
+        this.siguiente=null;
+    }
+    public Object obtenerValor(){
+        return valor;
+    }
+    public void enlazarSiguiente(Nodo n){
+        siguiente=n;
+    }
+    public Nodo obtenerSiguiente(){
+        return siguiente;
+    }
+    }
