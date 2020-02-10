@@ -1,0 +1,53 @@
+public class ListaSE{
+    private NodoSE ini;
+    public void invertir(){
+        if(this.vacia() !=true){
+            NodoSE aux=ini;
+            NodoSE sig=null;
+            NodoSE tem=null;
+            while (aux.getSig()!= null){
+                sig=aux.getSig();
+                if(aux.getDato()%2==0&&sig.getDato()%2==0){
+                    tem=aux;
+                    aux=sig;
+                    sig=tem;
+                }
+                aux = aux.getSig();
+            }
+        }else{
+         System.out.println("esta la lista vacia");
+       }
+    }
+    
+    public ListaSE(){
+        ini = null;
+    }
+    public boolean vacia(){
+        return ini == null;
+    }
+    /*
+     * No cambiar, eliminar, ni modificar este metodo
+     */
+    public String toString(){
+        String res = "";
+        NodoSE aux = ini;
+        if(vacia())
+            res = "[]";
+        while(aux != null){
+            res += "[" + aux.getDato() + "]->";
+            aux = aux.getSig();
+        }
+        return res;
+    }
+    public void insertar(int dato){
+        if(vacia()){
+            ini = new NodoSE(dato);
+        }else{
+            NodoSE aux = ini;
+            while(aux.getSig() != null){
+                aux = aux.getSig();
+            }
+            aux.setSig(new NodoSE(dato));
+        }
+    }
+    }
