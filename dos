@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+public class Cartas{
+    public int cartas(int n){
+        ArrayList lista=new ArrayList <Integer>();
+        llenar(lista,n,1);
+        return cartas(n,lista);
+    }
+
+    private void llenar(ArrayList <Integer>lista,int cantidad,int numero){
+        if(cantidad!=0){
+            lista.add(numero);
+            llenar(lista,cantidad-1,numero+1);
+        }
+    }
+
+    private int cartas(int n,ArrayList <Integer>lista){
+        if(n!=1){
+            lista.remove(0);
+            int aux=lista.get(0);
+            lista.remove(0);
+            lista.add(aux);
+            return cartas(n-1,lista);
+        }else{
+            return lista.get(0);
+        }
+    }
+}
